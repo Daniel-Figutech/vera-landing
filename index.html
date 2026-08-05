@@ -479,6 +479,7 @@ footer nav a:hover{color:var(--mint-pale)}
 .modal-in h3 b{color:var(--mint)}
 .modal-in>p{margin-top:.6rem;font:400 .88rem/1.6 var(--font-b);color:var(--mut)}
 .ghl-slot{margin-top:1.2rem;border-radius:14px;background:#fff;min-height:620px;overflow:hidden;position:relative}
+.ghl-slot iframe{display:block;border-radius:14px}
 .ghl-placeholder{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;
   border:2px dashed #C8D9D1;border-radius:14px;margin:10px;text-align:center;padding:1rem}
 .ghl-placeholder b{font:600 1rem/1.4 var(--font-d);color:#28584646;color:#2E5C49}
@@ -840,11 +841,12 @@ footer nav a:hover{color:var(--mint-pale)}
         <!-- navegue en vez de abrir popup.                       -->
         <!-- ==================================================== -->
         <div class="ghl-slot" id="ghl-form-slot">
-          <div class="ghl-placeholder">
-            <b>Aquí va el formulario de GoHighLevel</b>
-            <span>Pega el embed dentro de #ghl-form-slot y borra este placeholder</span>
-          </div>
+          <iframe data-src="https://api.leadconnectorhq.com/widget/booking/7EDrUQoPt8ugsONNASzM" allow="payment"
+            style="width:100%;border:none;overflow:hidden;min-height:620px" scrolling="no"
+            id="7EDrUQoPt8ugsONNASzM_1785897320575" title="Agendar llamada"></iframe>
         </div>
+
+      </div>
 
       </div>
     </div>
@@ -901,8 +903,18 @@ footer nav a:hover{color:var(--mint-pale)}
 
   /* ---------- Modal ---------- */
   var modal=document.getElementById('form-modal');
+  var ghlLoaded=false;
+  function loadGhl(){
+    if(ghlLoaded)return;ghlLoaded=true;
+    var f=modal.querySelector('iframe[data-src]');
+    if(f)f.src=f.getAttribute('data-src');
+    var s=document.createElement('script');
+    s.src='https://link.msgsndr.com/js/form_embed.js';s.async=true;
+    document.body.appendChild(s);
+  }
   function openModal(){
     modal.hidden=false;
+    loadGhl();
     requestAnimationFrame(function(){requestAnimationFrame(function(){modal.classList.add('open');});});
     document.body.style.overflow='hidden';
   }
