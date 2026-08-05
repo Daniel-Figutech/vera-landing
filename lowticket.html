@@ -185,8 +185,9 @@ h1,h2{font-family:var(--font-d);font-weight:700;letter-spacing:-.03em;text-wrap:
 .chip--scan.done i{animation:none;opacity:1}
 
 .prehead{position:relative;display:inline-flex;align-items:center;justify-content:center;max-width:680px;margin-top:1.3rem;
-  padding:clamp(.85rem,2.4vw,1.1rem) clamp(1.2rem,3.5vw,2rem);transform:rotate(-.7deg);
+  padding:clamp(.85rem,2.4vw,1.05rem) clamp(1.2rem,3.5vw,2rem);transform:rotate(-.7deg);
   font:500 clamp(.95rem,1.6vw,1.08rem)/1.55 var(--font-b);color:var(--mut)}
+@media(min-width:720px){.prehead{max-width:none;white-space:nowrap;font-size:clamp(.84rem,1.28vw,1.04rem)}}
 .prehead .t{position:relative;z-index:2}
 .prehead strong{color:var(--mint-pale);font-weight:600}
 .prehead .box{position:absolute;inset:0;width:100%;height:100%;z-index:1;overflow:visible;
@@ -275,10 +276,10 @@ h1,h2{font-family:var(--font-d);font-weight:700;letter-spacing:-.03em;text-wrap:
   radial-gradient(ellipse 55% 38% at 90% 80%,rgba(123,208,173,.06),transparent 60%)}
 .inc{max-width:760px;margin:clamp(2.2rem,5vw,3.2rem) auto 0;border-radius:20px;
   background:rgba(237,247,241,.015);border:.5px solid rgba(237,247,241,.07);overflow:hidden}
-.inc-row{display:flex;align-items:flex-start;gap:14px;padding:clamp(1rem,2.6vw,1.35rem) clamp(1.1rem,3vw,1.7rem);
+.inc-row{display:flex;align-items:center;gap:14px;padding:clamp(1rem,2.6vw,1.35rem) clamp(1.1rem,3vw,1.7rem);
   border-top:.5px solid rgba(237,247,241,.05)}
 .inc-row:first-child{border-top:none}
-.inc-ico{flex:0 0 auto;width:34px;height:34px;margin-top:1px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+.inc-ico{flex:0 0 auto;width:34px;height:34px;border-radius:10px;display:flex;align-items:center;justify-content:center;
   background:linear-gradient(145deg,rgba(46,176,135,.22),rgba(46,176,135,.05));
   border:.5px solid rgba(123,208,173,.4);
   box-shadow:0 0 20px rgba(46,176,135,.3),inset 0 1px 0 rgba(255,255,255,.09)}
@@ -401,7 +402,7 @@ footer nav a:hover{color:var(--mint-pale)}
 
     <div class="chip chip--scan rv" id="scanchip"><i></i><span class="scan-run">Analizando tus respuestas<b class="dots"><s>.</s><s>.</s><s>.</s></b></span><span class="scan-done"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Análisis completado</span></div>
 
-    <div class="prehead rv"><span class="t">Hemos analizado lo que nos contaste en el formulario. <strong>Esto es lo que más encaja contigo.</strong></span><svg class="box" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true"><path d="M15,11 C100,5 210,8 305,12 C311,33 309,66 304,87 C220,92 108,89 13,84 C8,60 9,33 15,11 Z" fill="none" stroke-width="2" stroke-dasharray="8 7" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></div>
+    <div class="prehead rv"><span class="t">Hemos analizado lo que nos contaste en el formulario. <strong>Esto es lo que más encaja contigo.</strong></span><svg class="box" viewBox="0 0 480 64" preserveAspectRatio="none" aria-hidden="true"><path d="M20,9 C140,3 330,6 458,10 C467,24 466,44 459,55 C330,61 150,58 21,54 C11,40 13,22 20,9 Z" fill="none" stroke-width="2" stroke-dasharray="8 7" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></div>
 
     <h1 class="rv blurin">Instala a VERA en tu Instagram y deja de perder <span class="aura">los leads que ya estás atrayendo</span>. <span class="htail"><span class="hl">Te la montamos nosotros.</span></span></h1>
 
