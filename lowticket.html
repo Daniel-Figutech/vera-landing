@@ -184,8 +184,14 @@ h1,h2{font-family:var(--font-d);font-weight:700;letter-spacing:-.03em;text-wrap:
 .chip--scan.done .scan-done{display:inline-flex}
 .chip--scan.done i{animation:none;opacity:1}
 
-.prehead{max-width:660px;margin-top:1.15rem;font:500 clamp(.95rem,1.6vw,1.08rem)/1.55 var(--font-b);color:var(--mut)}
+.prehead{position:relative;display:inline-flex;align-items:center;justify-content:center;max-width:680px;margin-top:1.3rem;
+  padding:clamp(.85rem,2.4vw,1.1rem) clamp(1.2rem,3.5vw,2rem);transform:rotate(-.7deg);
+  font:500 clamp(.95rem,1.6vw,1.08rem)/1.55 var(--font-b);color:var(--mut)}
+.prehead .t{position:relative;z-index:2}
 .prehead strong{color:var(--mint-pale);font-weight:600}
+.prehead .box{position:absolute;inset:0;width:100%;height:100%;z-index:1;overflow:visible;
+  filter:drop-shadow(0 0 12px rgba(46,176,135,.3))}
+.prehead .box path{stroke:rgba(123,208,173,.7)}
 
 .hero h1{max-width:1000px;margin-top:.9rem;font-size:clamp(1.7rem,4.5vw,3.2rem);line-height:1.14;color:var(--ink)}
 .htail{white-space:nowrap}
@@ -261,7 +267,7 @@ h1,h2{font-family:var(--font-d);font-weight:700;letter-spacing:-.03em;text-wrap:
 .pillbrow{display:inline-flex;align-items:center;padding:7px 16px;border-radius:980px;
   background:linear-gradient(135deg,#EACF8F,#C79A4B);color:#171006;
   font:600 11px/1 var(--font-d);letter-spacing:.14em;text-transform:uppercase}
-.sec-head .pillbrow{margin:0 auto}
+.sec-head p.pillbrow{margin:0 auto;color:#171006;font:600 11px/1 var(--font-d);letter-spacing:.14em;text-transform:uppercase}
 
 /* ---------- Qué te llevas ---------- */
 .entra{border-top:1px solid rgba(123,208,173,.07);background:
@@ -272,10 +278,11 @@ h1,h2{font-family:var(--font-d);font-weight:700;letter-spacing:-.03em;text-wrap:
 .inc-row{display:flex;align-items:flex-start;gap:14px;padding:clamp(1rem,2.6vw,1.35rem) clamp(1.1rem,3vw,1.7rem);
   border-top:.5px solid rgba(237,247,241,.05)}
 .inc-row:first-child{border-top:none}
-.inc-ico{flex:0 0 auto;width:26px;height:26px;margin-top:2px;border-radius:50%;display:flex;align-items:center;justify-content:center;
-  background:rgba(46,176,135,.14);border:.5px solid rgba(46,176,135,.4);
-  box-shadow:0 0 16px rgba(46,176,135,.25)}
-.inc-ico svg{width:13px;height:13px;color:var(--mint)}
+.inc-ico{flex:0 0 auto;width:34px;height:34px;margin-top:1px;border-radius:10px;display:flex;align-items:center;justify-content:center;
+  background:linear-gradient(145deg,rgba(46,176,135,.22),rgba(46,176,135,.05));
+  border:.5px solid rgba(123,208,173,.4);
+  box-shadow:0 0 20px rgba(46,176,135,.3),inset 0 1px 0 rgba(255,255,255,.09)}
+.inc-ico svg{width:17px;height:17px}
 .inc-row b{display:block;font:600 clamp(.98rem,1.8vw,1.08rem)/1.4 var(--font-d);letter-spacing:-.01em;color:var(--ink)}
 .inc-row span{display:block;margin-top:.15rem;font:300 .9rem/1.6 var(--font-b);color:var(--mut)}
 .inc-row span em{font-style:normal;color:#D8EAE1;font-weight:500}
@@ -351,6 +358,12 @@ footer nav a:hover{color:var(--mint-pale)}
 <body>
 <div class="vera-page" id="vera-top">
 
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+    <linearGradient id="icograd" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#BCEBD5"/><stop offset=".55" stop-color="#7BD0AD"/><stop offset="1" stop-color="#2EB087"/>
+    </linearGradient>
+  </defs></svg>
+
   <div class="bg-fx" aria-hidden="true"><div class="bg-grid"></div><div class="bg-glow"></div></div>
   <div class="grain" aria-hidden="true"></div>
   <div class="topfade" id="topfade" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
@@ -388,7 +401,7 @@ footer nav a:hover{color:var(--mint-pale)}
 
     <div class="chip chip--scan rv" id="scanchip"><i></i><span class="scan-run">Analizando tus respuestas<b class="dots"><s>.</s><s>.</s><s>.</s></b></span><span class="scan-done"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg>Análisis completado</span></div>
 
-    <p class="prehead rv">Hemos analizado lo que nos contaste en el formulario. <strong>Esto es lo que más encaja contigo.</strong></p>
+    <div class="prehead rv"><span class="t">Hemos analizado lo que nos contaste en el formulario. <strong>Esto es lo que más encaja contigo.</strong></span><svg class="box" viewBox="0 0 320 96" preserveAspectRatio="none" aria-hidden="true"><path d="M15,11 C100,5 210,8 305,12 C311,33 309,66 304,87 C220,92 108,89 13,84 C8,60 9,33 15,11 Z" fill="none" stroke-width="2" stroke-dasharray="8 7" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></div>
 
     <h1 class="rv blurin">Instala a VERA en tu Instagram y deja de perder <span class="aura">los leads que ya estás atrayendo</span>. <span class="htail"><span class="hl">Te la montamos nosotros.</span></span></h1>
 
@@ -437,12 +450,12 @@ footer nav a:hover{color:var(--mint-pale)}
     </div>
 
     <div class="inc rv">
-      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>VERA entrenada por nosotros con tu negocio dentro</b><span>Te la entregamos funcionando. <em>Tú no montas nada.</em></span></div></div>
-      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Mensajes ilimitados por Instagram, 24/7</b><span>Entiende y escucha <em>hasta los audios</em>.</span></div></div>
-      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Cualifica, hace seguimientos anti no-show y agenda sola</b><span>A tu agenda solo llegan <em>las llamadas buenas</em>.</span></div></div>
-      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Panel para ajustar el prompt tú mismo</b><span>En dos clics, <em>sin tocar nada técnico</em>.</span></div></div>
-      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>El embudo de captación completo</b><span>La misma campaña que usan <em>los negocios de +50.000€/mes</em> que ayudamos.</span></div></div>
-      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.5 4.5L19 7.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Formación completa</b><span>Exprimir la IA, disparar tus conversaciones, <em>Meta y ManyChat desde cero</em>.</span></div></div>
+      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#icograd)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="8.2" width="14" height="10.8" rx="3"/><path d="M12 8.2V5.6"/><circle cx="12" cy="4.2" r="1.3"/><path d="M9.4 12.6v1.6M14.6 12.6v1.6"/><path d="M9.6 16.4h4.8"/></svg></span><div><b>VERA entrenada por nosotros con tu negocio dentro</b><span>Te la entregamos funcionando. <em>Tú no montas nada.</em></span></div></div>
+      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#icograd)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7A2.6 2.6 0 0 1 6.6 4.4h10.8A2.6 2.6 0 0 1 20 7v6.4a2.6 2.6 0 0 1-2.6 2.6H9.6l-4.1 3.3c-.6.5-1.5 0-1.5-.7V7Z"/><path d="M8.4 10.6v1.6M11 9.2v4.4M13.6 10v2.8M16.2 9.6v3.2"/></svg></span><div><b>Mensajes ilimitados por Instagram, 24/7</b><span>Entiende y escucha <em>hasta los audios</em>.</span></div></div>
+      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#icograd)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="6" width="16" height="13.6" rx="2.6"/><path d="M8.2 4v3.4M15.8 4v3.4M4 10.6h16"/><path d="m9.4 15 2 2 3.6-3.8"/></svg></span><div><b>Cualifica, hace seguimientos anti no-show y agenda sola</b><span>A tu agenda solo llegan <em>las llamadas buenas</em>.</span></div></div>
+      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#icograd)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 8.2h6.3M15.6 8.2h3.9M4.5 15.8h3.1M12.4 15.8h7.1"/><circle cx="13.5" cy="8.2" r="2.1"/><circle cx="10.3" cy="15.8" r="2.1"/></svg></span><div><b>Panel para ajustar el prompt tú mismo</b><span>En dos clics, <em>sin tocar nada técnico</em>.</span></div></div>
+      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#icograd)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4.2 5.4h15.6l-6 7.4v4.6l-3.6 2.2v-6.8L4.2 5.4Z"/></svg></span><div><b>El embudo de captación completo</b><span>La misma campaña que usan <em>los negocios de +50.000€/mes</em> que ayudamos.</span></div></div>
+      <div class="inc-row"><span class="inc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="url(#icograd)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m12 4.4 9.3 4.3L12 13 2.7 8.7 12 4.4Z"/><path d="M6.8 10.9v4.2c0 1.1 2.4 2.4 5.2 2.4s5.2-1.3 5.2-2.4v-4.2"/><path d="M21.3 8.9v3.8"/></svg></span><div><b>Formación completa</b><span>Exprimir la IA, disparar tus conversaciones, <em>Meta y ManyChat desde cero</em>.</span></div></div>
     </div>
 
     <div class="price rv">
@@ -553,7 +566,7 @@ footer nav a:hover{color:var(--mint-pale)}
   /* ---------- Bunny VSL: barra de retención + tap para sonido ---------- */
   var frame=document.getElementById('vsl-frame'), fill=document.getElementById('vsl-fill'), tap=document.getElementById('vsl-tap');
   if(frame&&fill&&tap){
-    var PTS=[[0,0],[0.04,0.22],[0.12,0.42],[1,1]];
+    var PTS=[[0,0],[0.02,0.28],[0.05,0.42],[0.12,0.55],[1,1]];
     var warp=function(x){if(x<=0)return 0;if(x>=1)return 1;for(var i=0;i<PTS.length-1;i++){var a=PTS[i],b=PTS[i+1];if(x<=b[0])return a[1]+((b[1]-a[1])*(x-a[0]))/(b[0]-a[0]);}return 1;};
     var setProg=function(f){fill.style.width=(Math.max(0,Math.min(1,warp(f)))*100).toFixed(2)+'%';};
     var player=null,ready=false,got=false,fb=null,pending=null,engaged=false;
