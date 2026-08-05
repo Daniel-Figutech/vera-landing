@@ -130,16 +130,16 @@ h1,h2{font-family:var(--font-d);font-weight:700;letter-spacing:-.03em;text-wrap:
 .rv.in{opacity:1;transform:none}
 
 /* ---------- Progressive blur superior ---------- */
-.topfade{position:fixed;top:0;left:0;right:0;height:160px;z-index:80;pointer-events:none;opacity:0;transition:opacity .5s ease}
+.topfade{position:fixed;top:0;left:0;right:0;height:172px;z-index:80;pointer-events:none;opacity:0;transition:opacity .5s ease}
 .topfade.on{opacity:1}
 .topfade i{position:absolute;inset:0}
-.topfade i:nth-child(1){backdrop-filter:blur(1.5px);-webkit-backdrop-filter:blur(1.5px);
+.topfade i:nth-child(1){backdrop-filter:blur(2.5px) saturate(1.15);-webkit-backdrop-filter:blur(2.5px) saturate(1.15);
   -webkit-mask-image:linear-gradient(to top,transparent 38%,#000 62%);mask-image:linear-gradient(to top,transparent 38%,#000 62%)}
-.topfade i:nth-child(2){backdrop-filter:blur(3.5px);-webkit-backdrop-filter:blur(3.5px);
+.topfade i:nth-child(2){backdrop-filter:blur(5.5px) saturate(1.4);-webkit-backdrop-filter:blur(5.5px) saturate(1.4);
   -webkit-mask-image:linear-gradient(to top,transparent 54%,#000 74%);mask-image:linear-gradient(to top,transparent 54%,#000 74%)}
-.topfade i:nth-child(3){backdrop-filter:blur(7px) saturate(1.5);-webkit-backdrop-filter:blur(7px) saturate(1.5);
+.topfade i:nth-child(3){backdrop-filter:blur(11px) saturate(1.85);-webkit-backdrop-filter:blur(11px) saturate(1.85);
   -webkit-mask-image:linear-gradient(to top,transparent 68%,#000 85%);mask-image:linear-gradient(to top,transparent 68%,#000 85%)}
-.topfade i:nth-child(4){backdrop-filter:blur(14px) saturate(1.7) brightness(1.08);-webkit-backdrop-filter:blur(14px) saturate(1.7) brightness(1.08);
+.topfade i:nth-child(4){backdrop-filter:blur(22px) saturate(2.2) brightness(1.12);-webkit-backdrop-filter:blur(22px) saturate(2.2) brightness(1.12);
   -webkit-mask-image:linear-gradient(to top,transparent 80%,#000 95%);mask-image:linear-gradient(to top,transparent 80%,#000 95%);
   background:linear-gradient(to top,rgba(5,16,12,0),rgba(5,16,12,.4))}
 
