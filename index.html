@@ -93,9 +93,9 @@ h1,h2{font-family:var(--font-d);font-weight:700;letter-spacing:-.03em;text-wrap:
 .blurin.bi-ready.in .hl::after{animation:hlpin .32s ease calc(var(--hld,1s) + .72s) forwards}
 @keyframes hlpin{to{opacity:1}}
 .hero h1 .hl{--hld:1.45s}
-.blurin.bi-ready .aura{opacity:0}
-.blurin.bi-ready.in .aura{animation:aurain .85s cubic-bezier(.2,.7,.2,1) .18s both}
-@keyframes aurain{from{opacity:0;filter:blur(10px)}to{opacity:1;filter:blur(0)}}
+.blurin.bi-ready .aura{background:none}
+.blurin.bi-ready .aura .ch{background:linear-gradient(115deg,var(--mint-pale),var(--mint) 55%,var(--brand));
+  -webkit-background-clip:text;background-clip:text}
 
 /* ---------- Botón loop infinito ---------- */
 .btn{position:relative;display:inline-flex;border:0;border-radius:999px;isolation:isolate;cursor:pointer;
@@ -1000,10 +1000,25 @@ footer nav a:hover{color:var(--mint-pale)}
             frag.appendChild(w);
           });
           node.replaceChild(frag,n);
-        } else if(n.nodeType===1 && n.classList && !n.classList.contains('w') && !n.classList.contains('aura')) wrap(n);
+        } else if(n.nodeType===1 && n.classList && !n.classList.contains('w')) wrap(n);
       });
     };
     document.querySelectorAll('.blurin').forEach(function(el){idx=0;wrap(el);el.classList.add('bi-ready');});
+
+    /* gradiente continuo del aura repartido entre sus caracteres */
+    var paintAuras=function(){
+      document.querySelectorAll('.blurin .aura').forEach(function(a){
+        var r=a.getBoundingClientRect();if(!r.width)return;
+        a.querySelectorAll('.ch').forEach(function(c){
+          var cr=c.getBoundingClientRect();
+          c.style.backgroundSize=r.width+'px 100%';
+          c.style.backgroundPosition=(r.left-cr.left)+'px 0';
+        });
+      });
+    };
+    if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){requestAnimationFrame(paintAuras);});}
+    else{paintAuras();}
+    var pt;window.addEventListener('resize',function(){clearTimeout(pt);pt=setTimeout(paintAuras,180);},{passive:true});
   }
 
   /* CRM: lista animada en bucle */
